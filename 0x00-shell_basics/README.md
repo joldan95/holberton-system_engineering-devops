@@ -7,3 +7,5 @@ This is the shell basics project. It would have the task to understand the basic
 2-bring_me_home			  Go to user's working directory
 3-listfiles			  List the files in long format
 4-listmorefiles			  List all the files in long format
+5-listfilesdigitonly		  List files in long format with numbers in ID's
+6-firstdirectory		  Create a directory at /tmp/holberton
