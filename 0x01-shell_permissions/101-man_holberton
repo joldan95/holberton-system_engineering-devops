@@ -1,7 +1,7 @@
-.\"Man page for holberton
 .TH man 2 "04 May 2015" "0.32" "holberton man page"
 .SH NAME
-\fBholberton \-\fR become a full-stack software engineer.
+.Bholberton
+\- become a full-stack software engineer.
 .SH SYNOPSIS
 holberton [STUDENTNAME]
 .SH DESCRIPTION
