@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 # This script kills the process of 4-to_infinity_and_beyond
 i=$( pgrep -f infinity )
-kill -15 $((i))
+kill "$i"
