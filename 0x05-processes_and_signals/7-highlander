@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# This script prints text when receives SIGTERM signal
+
+while true
+do
+	echo "To infinity and beyond"
+	sleep 2
+	trap "echo hola" SIGTERM
+done
