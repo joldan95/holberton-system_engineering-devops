@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# This script shows the content of the actual directory
+
+dirs=$( ls -1 )
+
+for i in $dirs
+do
+	find "$i" | cut -d '-' -f2
+done
