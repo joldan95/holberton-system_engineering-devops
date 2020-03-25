@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Install and configure and nginx web server
-apt-get update
-apt-get install nginx
+apt-get update -y
+apt-get install nginx -y
 ufw allow 'Nginx HTTP'
 ufw allow 'OpenSSH'
 echo "Holberton School" > /var/www/html/index.html
