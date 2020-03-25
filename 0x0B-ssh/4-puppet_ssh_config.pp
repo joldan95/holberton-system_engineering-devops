@@ -4,7 +4,7 @@
 file_line { 'ssh_config no pass':
   ensure   => 'present',
   path     => '/etc/ssh/ssh_config',
-  line     => '#   PasswordAuthentication yes',
+  line     => '#   PasswordAuthentication no',
   match    => '#   PasswordAuthentication'
 }
 
