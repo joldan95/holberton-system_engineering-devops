@@ -5,3 +5,4 @@ apt-get install nginx
 ufw allow 'Nginx HTTP'
 ufw allow 'OpenSSH'
 echo "Holberton School" > /var/www/html/index.html
+systemctl start nginx
