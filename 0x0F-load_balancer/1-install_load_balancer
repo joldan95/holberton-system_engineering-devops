@@ -1,14 +1,17 @@
 #!/usr/bin/env bash
 # Install and configure HAproxy on the server
-apt-get install software-properties-common
+apt-get install -y software-properties-common
 add-apt-repository ppa:vbernat/haproxy-1.8
 
 apt-get update
-apt-get install haproxy=1.8.\*
+apt-get install -y haproxy=1.8.\*
 
 # Configure load balancer
 CONFIG_FILE="/etc/haproxy/haproxy.cfg"
 
 echo -e "\nlisten http-in" | tee -a $CONFIG_FILE
-echo -e "\tbind *:80\n\tmode http\n\tstats enable\n\tbalance roundrobin" | tee -a $CONFIG_FILE
-echo -e "\toption httpclose\n\toption forwardfor\n\tserver 1218-web-01 34.74.55.34:80 check\n\tserver 1218-web-02 3.82.65.220:80 check" | tee -a $CONFIG_FILE
+echo -e "\tbind *:80\n\tmode http\n\tbalance roundrobin" | tee -a $CONFIG_FILE
+echo -e "\tserver 1218-web-01 34.74.55.34:80 check\n\tserver 1218-web-02 3.82.65.220:80 check" | tee -a $CONFIG_FILE
+
+echo "ENABLED=1" | tee -a /etc/default/haproxy
+service haproxy start
