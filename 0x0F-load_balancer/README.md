@@ -8,7 +8,6 @@ This project is made to understand the importance and applicability of load bala
 - How to customize HTTP headers
 - How to install load balancers with HAproxy
 
-
 ## Tasks
 
 #### [0. Double the number of webservers](0-custom_http_response-header)

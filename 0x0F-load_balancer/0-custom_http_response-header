@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # Configure Nginx to get a custom response in HTTP
 CONFIG_FILE="/etc/nginx/nginx.conf"
-ACTUAL_HN="include \/etc\/nginx\/sites-enabled\/*;\n\n\t##\n\t# HTTP Header\n\t##\n\n\tadd_header X-Served-By `hostname`;"
+ACTUAL_HN="include \/etc\/nginx\/sites-enabled\/*;\n\n\t##\n\t# HTTP Header\n\t##\n\n\tadd_header X-Served-By $(hostname);"
 
 # Changing nginx configuration
 sed -i "s/include \/etc\/nginx\/sites-enabled\/\*;/$ACTUAL_HN/g" $CONFIG_FILE
