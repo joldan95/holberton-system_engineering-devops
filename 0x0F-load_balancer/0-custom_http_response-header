@@ -1,4 +1,31 @@
 #!/usr/bin/env bash
+# Install nginx service
+# Configure redirection
+# Configure custom 404 page
+# Configure custom http header
+
+# Creates a nginx server
+apt-get update -y
+apt-get install nginx -y
+ufw allow 'Nginx HTTP'
+ufw allow 'OpenSSH'
+echo "Holberton School" > /var/www/html/index.nginx-debian.html
+service nginx start
+
+# Configuration file
+CONFIG_FILE="/etc/nginx/sites-available/default"
+
+# Managing redirection
+REDIR="server_name _;\n\n\tlocation \/redirect_me {\n\t\trewrite ^\/(.*)\$ https:\/\/www.youtube.com\/watch?v=QH2-TGUlwu4 permanent;\n\t}\n"
+sed -i "s/server_name _;/$REDIR/g" $CONFIG_FILE
+service nginx restart
+
+# Custom 404 page
+echo "Ceci n'est pas une page" > /usr/share/nginx/html/custom_404.html
+NOT_FOUND="server_name _;\n\n\terror_page 404 \/custom_404.html;\n\tlocation = \/custom_404.html {\n\t\troot \/usr\/share\/nginx\/html;\n\t\tinternal;\n\t}\n"
+sed -i "s/server_name _;/$NOT_FOUND/g" $CONFIG_FILE
+service nginx restart
+
 # Configure Nginx to get a custom response in HTTP
 CONFIG_FILE="/etc/nginx/nginx.conf"
 ACTUAL_HN="include \/etc\/nginx\/sites-enabled\/*;\n\n\t##\n\t# HTTP Header\n\t##\n\n\tadd_header X-Served-By $(hostname);"
