@@ -2,4 +2,4 @@
 # Reconfigures nginx
 sed -i "s/8080/80/" /etc/nginx/sites-enabled/default
 service nginx restart
-kill -KILL $(cat /var/run/nginx.pid)
+kill -KILL "$(cat /var/run/nginx.pid)"
