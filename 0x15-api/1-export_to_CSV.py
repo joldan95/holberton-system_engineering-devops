@@ -14,8 +14,9 @@ if __name__ == "__main__":
         todos = requests.get(url.format(user_id) + '/todos').json()
         with open("{}.csv".format(user_id), "w") as user_file:
             for task in todos:
-                s = "\"{}\",\"{}\",\"{}\",\"{}\"".format(user_id,
-                                                         user.json()["username"],
-                                                         task["completed"],
-                                                         task["title"])
+                s = "\"{}\",\"{}\",\"{}\",\"{}\""
+                s = s.format(user_id,
+                             user.json()["username"],
+                             task["completed"],
+                             task["title"])
                 print(s, file=user_file)
