@@ -16,6 +16,8 @@ if __name__ == "__main__":
         for todo in todos:
             todo.pop('userId')
             todo.pop('id')
+            todo['task'] = todo['title']
+            todo.pop('title')
             todo['username'] = user.json()['username']
         user_todos = {"{}".format(user_id): todos}
         with open("{}.json".format(user_id), "w") as user_file:
